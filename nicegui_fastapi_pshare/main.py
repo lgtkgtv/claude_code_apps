@@ -15,14 +15,20 @@ app = FastAPI(
 )
 
 # Allow cross-origin if needed
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=[
+#         "http://localhost:8080",  # during dev
+#         # "https://your-frontend-domain.com",  # production frontend
+#     ],
+#     allow_methods=["POST", "GET"],
+#     allow_headers=["Content-Type"],
+# )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:8080",  # during dev
-        # "https://your-frontend-domain.com",  # production frontend
-    ],
-    allow_methods=["POST", "GET"],
-    allow_headers=["Content-Type"],
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Upload folder setup
